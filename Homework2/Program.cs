@@ -14,7 +14,7 @@ namespace Homework2
             var users = new List<Models.User>();
 
             users.Add(new Models.User { Name = "Dave", Password = "hello" });
-            users.Add(new Models.User { Name = "Steve", Password = "steve" });
+            users.Add(new Models.User { Name = "Steve", Password = "steveg" });
             users.Add(new Models.User { Name = "Lisa", Password = "hello" });
 
             //Find users that has password as "hello" and display on console
@@ -28,7 +28,7 @@ namespace Homework2
             Console.WriteLine("\nDelete Passwords that are lower cased of their name:");
             var delPwd = users.Where(t => t.Name.ToLower() == t.Password);
 
-            if (delPwd == null)
+            if (delPwd == null || delPwd.Count() == 0)
             {
                 Console.WriteLine("Not found.");
             }
