@@ -1,0 +1,71 @@
+﻿@* Bao Tran
+   Homework 6*@
+
+@model BirthdayCard.Models.BirthdayResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RsvpForm</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Birthday Card Generator</h3>
+    <hr />
+
+    <h1>Send a Birthday Card</h1>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <form action="/Home/RsvpForm" method="post">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="FromName" class="control-label">From</label>
+                    <input class="form-control input-validation-error" type="text" data-val="true" data-val-required="From" id="FromName" name="FromName" value="" />
+                    <span class="text-danger field-validation-error" data-valmsg-for="FromName" data-valmsg-replace="true">Please enter From</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ToName" class="control-label">To</label>
+                    <input class="form-control input-validation-error" type="text" data-val="true" data-val-required="To" id="ToName" name="ToName" value="" />
+                    <span class="text-danger field-validation-error" data-valmsg-for="ToName" data-valmsg-replace="true">Please enter To</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="control-label">Message</label>
+                    <input class="form-control input-validation-error" type="text" data-val="true" data-val-required="Message" id="Message" name="Message" value="" />
+                    <span class="text-danger field-validation-error" data-valmsg-for="Message" data-valmsg-replace="true">Please enter Message</span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Send Card" class="btn btn-success" />
+                </div>
+                <input name="__RequestVerificationToken" type="hidden" value="...." />
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a href="/Home/Index">Back</a>
+    </div>
+
+</body>
+</html>
